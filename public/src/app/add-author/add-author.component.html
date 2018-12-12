@@ -1,0 +1,11 @@
+<p>{{errors}}</p>
+<form (submit) = "onSubmit()" class="postForm">
+  <p>{{NewAuthor | json}}</p>
+  <label>author name:
+    <input type="text" name="name" [(ngModel)]="NewAuthor.name"  />
+  </label>
+  <input type="submit" value="Create author" />
+</form>
+<a [routerLink]="['/main']">go home</a>  <br>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+{{error}} <br> 
+<form (submit) = "onEdit(data)" class="postForm">
+   {{data |json}}
+   <br>
+   <label>author name:
+      <input type="hidden" name="_id" value="{{data._id}}">
+      <input type="text" name="name" value='{{data.name}}' [(ngModel)]="data.name"  />
+    </label>
+    <input type="submit" value="Edit author" />
+  </form>

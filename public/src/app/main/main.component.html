@@ -1,0 +1,36 @@
+<h1><button (click)="tasksOnClick()">click me to get some tasks</button></h1>
+<h2>The authors: </h2>
+<input (keyup)="taskOnClick($event)">
+
+<div >4
+  <table>
+    <th>name</th>
+    <th>actions</th>
+    <tr *ngFor="let x of tasks['data']">
+      <td>{{x['name']}}</td>
+      <td> <form (submit) = "onDelete(x._id)" class="postForm">
+          <input type="submit" value="DELETE" />
+         </form>
+<a [routerLink]="['/Edit',x._id]">edit</a>  <br>
+</td>
+    </tr>
+  </table>
+</div>
+ <!-- <p><a href="/tasks/{{x['_id']}}">{{x['_id']}}:</a> {{x['name']}} - {{x['description']}}</p>
+ <form (submit) = "onDelete(x._id)" class="postForm">
+   <input type="submit" value="DELETE" />
+  </form>
+
+<form (submit) = "editOnClick(x)" class="postForm">
+    <input type="submit" value="EDIT" />
+</form>
+<div *ngIf="x.showEditForm">
+  <form (submit) = "onEdit(x)" class="postForm">
+    {{x.name}}
+    <label>name:
+      <input type="text" name="name" [(ngModel)] = "x.name" />
+    </label>
+    <input type="submit" value="EDIT" />
+  </form>
+</div>
+</div> -->
