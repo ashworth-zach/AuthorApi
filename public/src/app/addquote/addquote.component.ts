@@ -22,18 +22,26 @@ export class AddquoteComponent implements OnInit {
     // console.log(this.route.params._value.id);
   }
   findToEdit(){
-    this._httpService.getTask(this.route.params._value.id)
-    .subscribe(data => {
-      // console.log(data)
-      this.data=data;
+    var observable=this.route.params;
+    observable.subscribe((res)=>{
+      this._httpService.getTask(res.id)
+      .subscribe(data => {
+        // console.log(data)
+        this.data=data;
+      })
+      
     })
   }
   addQuote(newQuote){
-    this._httpService.postQuote(newQuote,this.route.params._value.id).subscribe(data => {
-      if(data['message']=='Error'){
-        this.error=data['error']['message']
-      }
-      console.log("Got data from post back", data);
+    var observable=this.route.params;
+    observable.subscribe((res)=>{
+      this._httpService.postQuote(newQuote,res.id).subscribe(data => {
+        if(data['message']=='Error'){
+          this.error=data['error']['message']
+        }
+        console.log("Got data from post back", data);
+      })
+
     })
     // this.findToEdit();
   }

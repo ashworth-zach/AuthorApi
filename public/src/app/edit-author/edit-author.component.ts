@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./edit-author.component.css']
 })
 export class EditAuthorComponent implements OnInit {
-  data={}
+  data:any;
   errors="";
   editAuthor:any;
   self = this;
@@ -19,9 +19,13 @@ export class EditAuthorComponent implements OnInit {
     this.editAuthor = { name:this.data.name }
   }
   findToEdit(){
-    this._httpService.getTask(this.route.params._value.id)
-    .subscribe(data => {
-      this.data=data['data'];
+    var observable= this.route.params;
+    observable.subscribe((res)=>{
+      console.log("RESP",res);
+      this._httpService.getTask(res.id)
+      .subscribe(data => {
+        this.data=data['data'];
+      })
     })
   }
   onEdit(editTask){
