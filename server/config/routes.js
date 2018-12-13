@@ -17,4 +17,8 @@ module.exports = function(app){
     app.delete('/authors/:id', function(req, res) {
         home.delete(req,res);
     });
+    app.post('/authors/:id/addquote',function(req,res){
+        console.log("HIT ROUTE");
+        home.addQuote(req,res);
+    })
 }

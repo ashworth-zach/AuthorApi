@@ -31,4 +31,10 @@ export class HttpService {
       console.log('request to edit', editTask._id);
       return this._http.patch('/authors/'+editTask._id, editTask);
     }
+    postQuote(newQuote,authorId){
+      console.log('submitting',newQuote);
+      console.log(newQuote,authorId);
+      
+      return this._http.post('/authors/'+authorId+'/addquote',newQuote);
+    }
   }

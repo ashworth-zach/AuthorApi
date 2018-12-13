@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var author = mongoose.model('author');
+
 module.exports={
     get:function (req, res) {
         author.find({}, function (err, authors) {
@@ -16,6 +17,20 @@ module.exports={
     
             }
         })
+    },
+    addQuote: (req, res)=>{
+        author.updateOne(
+            {_id: req.params.id}, 
+            {$push: {_quotes: {quote: req.body.quote, likes: 0 }}}, function(err){
+                if(err){
+                    console.log("???????????????????????????????????????????")
+                    res.json({message:"Error", error:err})
+                }
+                else{
+                    console.log("SYUUUUUUUUUCCCCCCCCCCCSSSSSESSSSSSSSSSSSSSSSS")
+                    res.json(req.body)
+                }
+            })
     },
     getone:function(req,res){
         author.findOne({_id:req.params.id},function(err,author){

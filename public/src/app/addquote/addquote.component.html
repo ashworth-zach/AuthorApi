@@ -1,0 +1,10 @@
+{{error}} <br> 
+<form (submit) = "addQuote(newQuote)" class="postForm">
+   {{newQuote |json}}
+   <br>
+   <label>quote:
+      <input type="text" name="name" value='{{newQuote.quote}}' [(ngModel)]="newQuote.quote"  />
+    </label>
+    <input type="submit" value="add quote" />
+  </form>
+<a [routerLink]="['/main']">go home</a>  <br>

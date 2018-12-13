@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { EditAuthorComponent } from './edit-author/edit-author.component';
 import { AddAuthorComponent } from './add-author/add-author.component';
 import { MainComponent } from './main/main.component';
+import { AddquoteComponent } from './addquote/addquote.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MainComponent } from './main/main.component';
     EditAuthorComponent,
     AddAuthorComponent,
     MainComponent,
+    AddquoteComponent,
   ],
   imports: [
     BrowserModule,

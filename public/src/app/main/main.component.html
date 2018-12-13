@@ -7,11 +7,13 @@
     <th>name</th>
     <th>actions</th>
     <tr *ngFor="let x of tasks['data']">
-      <td>{{x['name']}}</td>
+      <td>{{x['name']}}{{x._quotes}}</td>
       <td> <form (submit) = "onDelete(x._id)" class="postForm">
           <input type="submit" value="DELETE" />
          </form>
 <a [routerLink]="['/Edit',x._id]">edit</a>  <br>
+<a [routerLink]="['/newquote',x._id]">add quote</a>  <br>
+
 </td>
     </tr>
   </table>
